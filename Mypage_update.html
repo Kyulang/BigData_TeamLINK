@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>My Page Update</title>
+</head>
+
+<body>
+ Name  홍길동<br>
+회원정보 수정
+    <table width="100%" name="u_update" align="left">
+        <form action="" method="post" name="mypage_update">
+            <tr>
+                <td > Age </td>
+                <td> <input type="number" name="u_age_up" size="3"></td>
+            </tr>
+            <tr>
+                <td  > Sex </td>
+                <td  >
+                    <select name="u_sex_up">
+                        <option value="male"> male
+                        <option value="female"> female
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td  > cancer stage </td>
+                <td  > <input type="number" name="u_cstage_up" size="1"> </td>
+            </tr>
+            <tr>
+                <td  > hospital </td>
+                <td  > <input type="text" size="30" name="u_hospital_up"></td>
+            </tr>
+        </form>
+    </table><br>
+    <button type="button" name="update_state" onClick="location.href='mypage_update.html'">업데이트</button>
+
+</body>
+
+</html>
