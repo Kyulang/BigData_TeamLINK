@@ -9,20 +9,33 @@
 <body>
  Name  홍길동<br>
 회원정보 수정
+<form name = "mypage_update_form" action="patient_update.php" method="post">
+
     <table width="100%" name="u_update" align="left">
-        <form action="" method="post" name="mypage_update">
             <tr>
-                <td > Age </td>
+                <td > age </td>
                 <td> <input type="number" name="u_age_up" size="3"></td>
             </tr>
             <tr>
                 <td  > Sex </td>
                 <td  >
-                    <select name="u_sex_up">
+                    <select name="u_sex">
                         <option value="male"> male
                         <option value="female"> female
                     </select>
                 </td>
+            </tr>
+            <tr>
+                <td  > height </td>
+                <td  > <input type="text" name="u_height" size="3"> </td>
+            </tr>
+            <tr>
+                <td  > weight </td>
+                <td  > <input type="text" name="u_weight" size="3"> </td>
+            </tr>
+            <tr>
+                <td  > marry </td>
+                <td  > <input type="checkbox" name="u_marry" size="1"> </td>
             </tr>
             <tr>
                 <td  > cancer stage </td>
@@ -32,9 +45,10 @@
                 <td  > hospital </td>
                 <td  > <input type="text" size="30" name="u_hospital_up"></td>
             </tr>
-        </form>
+        
     </table><br>
-    <button type="button" name="update_state" onClick="location.href='mypage_update.html'">업데이트</button>
+    <button type="submit">업데이트</button>
+</form>
 
 </body>
 
