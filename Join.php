@@ -9,12 +9,7 @@ if($user_id==null || $user_pw==null)
     exit();
 }
 
-$conn = mysqli_connect(
-    'localhost',
-    'team03', //user name
-    'team03', //db password
-    'team03' //db name
-)
+include "./inc/dbcon.php";
 
 $sql = "
 INSERT INTO users

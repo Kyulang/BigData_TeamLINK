@@ -22,16 +22,7 @@ echo "병원: ".$hospital.<br>;
 
 
 // db접속
-$conn = mysqli_connect(
-    'localhost',
-    'root', //user name
-    'team03', //db password
-    'team03' //db name
-)
-
-if($conn === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-   }
+include "./inc/dbcon.php";
 
 $sql = "update user set age='$age', sex = '$sex', height='$height', weight = '$weight', marry='$marry', cs_stage = '$cs_stage', hospital = '$hostpital'";
 
