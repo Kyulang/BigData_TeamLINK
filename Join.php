@@ -11,7 +11,7 @@ if($user_id==null || $user_pw==null)
 
 $conn = mysqli_connect(
     'localhost',
-    'root', //user name
+    'team03', //user name
     'team03', //db password
     'team03' //db name
 )
