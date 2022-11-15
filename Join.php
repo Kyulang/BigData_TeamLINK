@@ -27,3 +27,18 @@ if ($result == false) {
 }else{
     echo"<script>alert('회원가입이 완료되었습니다.'); document.location.href='Login.html';</script>";
 }
+?>
+
+<HTML>
+    <HEAD>
+        <meta charset="UTF-8">
+        <TITLE>회원가입</TITLE>
+    </HEAD>
+    <BODY>
+        <form action="Join.php" method="post">
+        <h1> 회원가입 </h1>
+        사용할 아이디 입력 <INPUT TYPE="TEXT" NAME="USER_ID"><BR>
+        사용할 비밀번호 입력 <INPUT TYPE="TEXT" NAME="USER_PW"><BR>
+        </form>
+    </BODY>
+</HTML>
