@@ -11,4 +11,6 @@ $conn = mysqli_connect(
 if($conn === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
    }
-?>
+   echo "<script>
+   console.log('PHP_Console:connected');
+   </script>";;?>
