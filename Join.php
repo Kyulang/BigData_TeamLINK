@@ -39,6 +39,9 @@ if ($result == false) {
         <h1> 회원가입 </h1>
         사용할 아이디 입력 <INPUT TYPE="TEXT" NAME="USER_ID"><BR>
         사용할 비밀번호 입력 <INPUT TYPE="TEXT" NAME="USER_PW"><BR>
+        <INPUT TYPE="SUBMIT" VALUE="회원가입"> <INPUT TYPE = "reset" value="취소"><BR>
+
         </form>
     </BODY>
 </HTML>
+
