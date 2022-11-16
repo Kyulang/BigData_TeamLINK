@@ -22,8 +22,10 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 }
 echo "</table>";
 ?>
-<button type="button" name="update_state" onClick="location.href='mypage_update.html'">업데이트</button>
+<button type="button" name="update_state" onClick="location.href='Mypage_update.php'">업데이트</button>
 <button type="button" name="update_state" onClick="location.href='Mainpage.html'">메인페이지</button>
 
-<?phpinclude ('./inc/footer.php');
+<?php
+mysqli_close($conn);
+include ('./inc/footer.php');
 ?>
