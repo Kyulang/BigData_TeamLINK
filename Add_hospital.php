@@ -6,7 +6,7 @@ $page_title = 'Update MyPage';
 include('./inc/header.php');
 include "./inc/dbcon.php";
 
-if (isset($_POST['submitted']) && $_SESSION['user_id'] == 'admin'){
+if (isset($_POST['submitted_add_h']) && $_SESSION['user_id'] == 'admin'){
 
 
     $sql= "INSERT INTO hospital(hospital, region) VALUES(?, ?)";
@@ -26,6 +26,22 @@ if (isset($_POST['submitted']) && $_SESSION['user_id'] == 'admin'){
             document.location.href='Add_hospital.php';
             </script>";
             mysqli_close($conn);
+        }
+    }
+}
+if (isset($_POST['submitted_d_h']) && $_SESSION['user_id'] == 'admin'&&sizeof($_REQUEST['d_check'])!=""){
+    $delete_sql = "DELETE from hospital WHERE hospital = ?";
+    if($stmt = mysqli_prepare($conn, $delete_sql)){
+        $stmt->bind_param("s", $hospital);
+        for ($i = 0; $i <sizeof($_REQUEST['d_check']); $i++){
+            $hospital = $_REQUEST['d_check'][$i];
+            if (mysqli_stmt_execute($stmt)){
+                echo"<script>
+                alert(\"정보가 수정되었습니다.\");
+                document.location.href='Add_hospital.php';
+                </script>";
+                mysqli_close($conn);
+            }
         }
     }
 }
@@ -66,17 +82,29 @@ if (isset($_POST['submitted']) && $_SESSION['user_id'] == 'admin'){
         
     </table><br>
     <INPUT TYPE="SUBMIT" VALUE="추가"><BR>
-    <input type="hidden" name="submitted" value="TRUE" /><br>
+    <input type="hidden" name="submitted_add_h" value="TRUE" /><br>
     <button type="button" name="update_state" onClick="location.href='Mainpage_admin.html'">메인페이지</button> <br>
 </form>
 <hr color="black"/><br>
+<form action="./Add_hospital.php" method="post">
+<table border = 1>
+<tr>check<td></td><td>병원명</td><td>region</td>
 <?php
     $list_sql = "SELECT * FROM hospital";
     $list_result = mysqli_query($conn, $list_sql);
-    echo"<table border = 1>";
-    echo"<tr><td>병원명</td><td>region</td>";
+    
     while($row = mysqli_fetch_array($list_result, MYSQLI_ASSOC)){
-        echo "<tr><td> {$row['hospital']} </td><td>{$row['region']}</td></tr>";
+        echo "<tr>
+        <td> <input type=\"checkbox\" name=\"d_check[]\" value={$row['hospital']}></td> 
+        <td> {$row['hospital']} </td>
+        <td>{$row['region']}</td>
+        </tr>";
     }
+?>
+</table>
+        <input type="submit" value="삭제">
+        <input type="hidden" name="submitted_d_h" value="TRUE"/>
+    </form>
+ <?php   
     include ('./inc/footer.php');
 ?>
