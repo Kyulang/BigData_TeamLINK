@@ -17,13 +17,13 @@ echo "<script>
 
 if($user_id==null || $user_pw==null)
 {
-    echo"<script>alert('빈칸을 채워주세요.'); document.location.href='Login.html';</script>";
+    echo"<script>alert('빈칸을 채워주세요.'); document.location.href='Login.php';</script>";
     exit();
 }
 
 include "./inc/dbcon.php";
 
-$sql= "SELECT user_pw FROM user WHERE user_id='".$user_id."'";
+$sql= "SELECT user_pw FROM member_info WHERE user_id='".$user_id."'";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -48,6 +48,6 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
     <INPUT TYPE="SUBMIT" VALUE="login"><BR>
     <input type="hidden" name="submitted" value="TRUE" />
 </form>
-<button type="button" name="go_Join" onClick="location.href='Join.html'">회원가입</button><BR>
+<button type="button" name="go_Join" onClick="location.href='Join.php'">회원가입</button><BR>
 <?php include ('./inc/footer.php');
 ?>
