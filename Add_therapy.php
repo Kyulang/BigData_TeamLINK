@@ -9,7 +9,7 @@ include "./inc/dbcon.php";
 if (isset($_POST['submitted_add_t']) && $_SESSION['user_id'] == 'admin'){
 
 
-    $sql= "INSERT INTO therapy(therapy, hospital) VALUES(?, ?)";
+    $sql= "INSERT INTO therapy(hospital, therapy) VALUES(?, ?)";
 
     echo "<script>
     console.log('PHP_Console:".$_SESSION['user_id']."');
