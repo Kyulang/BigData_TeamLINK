@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hospital_Info</title>
+</head>
+
+<body>
+병원 정보 <br> 
+ 의료진 정보<br>
+
+<form name = "doctor_info_form" action="Doctor_Info.php" method="post">
+
+    <table width="100%" name="hospital_info" align="left">
+            <tr>
+                <td > 병원 선택 </td>
+                <td> <select name="hospital_name"> 병원 선택
+                    <option value="병원 선택"> 병원 선택
+                    <option value="가천대길병원"> 가천대길병원
+                    <option value="건양대학교병원"> 건양대학교병원
+                    <option value="국립암센터"> 국립암센터
+                </select>
+            </tr>
+            <tr>
+                <td  > 의사 선택 </td>
+                <td  >
+                    <select name="doctor_name"> 의사 선택
+                        <option value="의사 선택"> 의사 선택
+                        <option value="김00"> 김00
+                        <option value="이00"> 이00
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> 의사 정보 </td>
+            </tr>
+                  
+    </table><br>
+</form>
+
+<form name = "reservation_form" action="Reservation.php" method="post">
+
+    <table width="100%" name="reservation" align="left">
+            <tr>
+                <td> 병원 선택 </td>
+                <td> <select name="hospital_name"> 병원 선택
+                    <option value="병원 선택"> 병원 선택
+                    <option value="가천대길병원"> 가천대길병원
+                    <option value="건양대학교병원"> 건양대학교병원
+                    <option value="국립암센터"> 국립암센터
+                </select>
+            </tr>
+            <tr>
+                <td> 의사 선택 </td>
+                <td>
+                    <select name="doctor_name"> 의사 선택
+                        <option value="의사 선택"> 의사 선택
+                        <option value="김00"> 김00
+                        <option value="이00"> 이00
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> 시간 선택 </td>
+                <td>
+                    <select name="reservation_time"> 시간대 선택
+                        <option value="시간대 선택"> 시간대 선택
+                        <option value="10"> 10:00~11:00
+                        <option value="11"> 11:00~12:00 
+                        <option value="13"> 13:00~14:00 
+                        <option value="14"> 14:00~15:00 
+                        <option value="15"> 15:00~16:00  
+                        <option value="16"> 16:00~17:00          
+                    </select>
+            </tr>   
+    </table><br>
+    <button type="submit"> 예약하기 </button>
+</form>
+
+</body>
+
+</html>
