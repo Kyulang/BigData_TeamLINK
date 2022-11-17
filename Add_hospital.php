@@ -52,7 +52,7 @@ if (isset($_POST['submitted_d_h']) && $_SESSION['user_id'] == 'admin'&&sizeof($_
 <table width="100%" name="u_update" align="left">
     <table>
             <tr>
-                <td > 병원병 </td>
+                <td > 병원 </td>
                 <td> <input type="text" name="add_h_name" size="30"></td>
             </tr>
             <tr>
