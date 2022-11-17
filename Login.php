@@ -27,10 +27,10 @@ $sql= "SELECT user_pw FROM user WHERE user_id='".$user_id."'";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-    echo "<script>
-    console.log('PHP_Console:".$row['user_pw']."');
-    </script>";
     if ($user_pw ==$row['user_pw']){
+        if($user_id == 'admin'){
+            echo "<script>document.location.href='Mainpage_admin.html';</script>";
+        }
         echo "<script>document.location.href='Mainpage.html';</script>";
         $_SESSION['user_id'] = $user_id;
         

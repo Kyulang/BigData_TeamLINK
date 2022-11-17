@@ -15,10 +15,11 @@ echo "<table border = 1>";
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
     echo "<tr><td> NAME </td><td>{$row['user_id']}</td></tr>";
     echo "<tr><td> AGE </td> <td>{$row['age']}</td></tr>";
-    echo "<tf><td> race </td> <td>{$row['race']}</td></tr>";
-    echo "<tf><td> Marriage </td> <td>{$row['marital_status']}</td></tr>";
-    echo "<tf><td> height </td> <td>{$row['height']}</td></tr>";
-    echo "<tf><td> weight </td> <td>{$row['weight']}</td></tr>";
+    echo "<tr><td> race </td> <td>{$row['race']}</td></tr>";
+    echo "<tr><td> Marriage </td> <td>{$row['marital_status']}</td></tr>";
+    echo "<tr><td> height </td> <td>{$row['height']}</td></tr>";
+    echo "<tr><td> weight </td> <td>{$row['weight']}</td></tr>";
+    echo "<tr><td> region </td> <td>{$row['region']}</td></tr>";
 }
 echo "</table>";
 ?>

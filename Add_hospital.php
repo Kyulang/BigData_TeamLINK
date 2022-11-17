@@ -6,28 +6,24 @@ $page_title = 'Update MyPage';
 include('./inc/header.php');
 include "./inc/dbcon.php";
 
-if (isset($_POST['submitted'])){
+if (isset($_POST['submitted']) && $_SESSION['user_id'] == 'admin'){
 
 
-    $sql= "UPDATE patient_info SET age=?, race=?, marital_status=?, height=?, weight=?, region=? WHERE user_id='".$_SESSION['user_id']."'";
+    $sql= "INSERT INTO hospital(hospital, region) VALUES(?, ?)";
 
     echo "<script>
     console.log('PHP_Console:".$_SESSION['user_id']."');
     </script>";
 
     if($stmt = mysqli_prepare($conn, $sql)){
-        $stmt->bind_param("issdds", $age, $race, $marital_status, $height, $weight, $region);
-        $age = $_REQUEST['u_age'];
-        $race = $_REQUEST['u_race'];
-        $marital_status = $_REQUEST['u_marry'];
-        $height= $_REQUEST['u_height'];
-        $weight = $_REQUEST['u_weight'];
-        $region = $_REQUEST['u_region'];
+        $stmt->bind_param("ss", $hospital, $region);
+        $hospital = $_REQUEST['add_h_name'];
+        $region = $_REQUEST['add_h_region'];
         if (mysqli_stmt_execute($stmt)){
             
             echo "<script>
             alert(\"정보가 수정되었습니다.\");
-            document.location.href='Mypage.php';
+            document.location.href='Add_hospital.php';
             </script>";
             mysqli_close($conn);
         }
@@ -35,42 +31,17 @@ if (isset($_POST['submitted'])){
 }
 ?>
 
-
-<form action="./Mypage_update.php" method="post">
+<h1> 병원 추가</h1>
+<form action="./Add_hospital.php" method="post">
 <table width="100%" name="u_update" align="left">
     <table>
             <tr>
-                <td > age </td>
-                <td> <input type="number" name="u_age" size="3"></td>
-            </tr>
- 
-            <tr>
-                <td> race</td>
-                <td>  <select name="u_race">
-                        <option value="Yellow"> Yellow
-                        <option value="Black"> Black
-                        <option value="White"> White
-                    </select></td>
-            </tr>
-            <tr>
-                <td  > height </td>
-                <td  > <input type="number" step="0.01"  name="u_height" size="10"> </td>
-            </tr>
-            <tr>
-                <td  > weight </td>
-                <td  > <input type="number" step="0.01" name="u_weight" size="10"> </td>
-            </tr>
-            <tr>
-                <td  > marry </td>
-                <td  >  <select name="u_marry">
-                        <option value="Single"> Single
-                        <option value="Married"> Married
-                        <option value="Divorced"> Divorced
-                    </select></td>
+                <td > 병원병 </td>
+                <td> <input type="text" name="add_h_name" size="30"></td>
             </tr>
             <tr>
                 <td  > region </td>
-                <td  >  <select name="u_region">
+                <td  >  <select name="add_h_region">
                 <option value="서울특별시"> 서울특별시
                 <option value="부산광역시"> 부산광역시
                 <option value="대구광역시"> 대구광역시
@@ -94,8 +65,18 @@ if (isset($_POST['submitted'])){
             </tr>
         
     </table><br>
-    <INPUT TYPE="SUBMIT" VALUE="업데이트"><BR>
-    <input type="hidden" name="submitted" value="TRUE" />
+    <INPUT TYPE="SUBMIT" VALUE="추가"><BR>
+    <input type="hidden" name="submitted" value="TRUE" /><br>
+    <button type="button" name="update_state" onClick="location.href='Mainpage_admin.html'">메인페이지</button> <br>
 </form>
-<?php include ('./inc/footer.php');
+<hr color="black"/><br>
+<?php
+    $list_sql = "SELECT * FROM hospital";
+    $list_result = mysqli_query($conn, $list_sql);
+    echo"<table border = 1>";
+    echo"<tr><td>병원명</td><td>region</td>";
+    while($row = mysqli_fetch_array($list_result, MYSQLI_ASSOC)){
+        echo "<tr><td> {$row['hospital']} </td><td>{$row['region']}</td></tr>";
+    }
+    include ('./inc/footer.php');
 ?>

@@ -28,7 +28,7 @@ if ($result == false) {
     echo"<script>alert('아이디가 중복됩니다.'); document.location.href=Join.php';</script>";
     error_log(myspli_error($conn));
 }else{
-    echo"<script>alert('회원가입이 완료되었습니다.'); document.location.href='Login.html';</script>";
+    echo"<script>alert('회원가입이 완료되었습니다.'); document.location.href='Login.php';</script>";
     $info_sql = "INSERT INTO patient_info (user_id) 
     VALUES('{$_POST['user_id']}')";
     $r2 = mysqli_query($conn, $info_sql);
