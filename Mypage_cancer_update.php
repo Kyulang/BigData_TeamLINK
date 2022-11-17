@@ -72,7 +72,7 @@ if (isset($_POST['submitted'])){
                 <td  > 생존여부 </td>
                 <td  > <select name="u_t_vital">
                     <option value="Living" <?php if($org_array['vital_status'] == "Living") echo "SELECTED";?>> Living
-                    <option value="Died of Other Causes" <?php if($org_array['Died of Other Causes'] == "Recurred") echo "SELECTED";?>> Died of Other Causes
+                    <option value="Died of Other Causes" <?php if($org_array['vital_status'] == "Died of Other Causes") echo "SELECTED";?>> Died of Other Causes
                 </select>  </td>
             </tr>
     </table><br>

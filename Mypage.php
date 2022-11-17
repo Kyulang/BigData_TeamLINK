@@ -60,7 +60,7 @@ echo "</table>";
     echo "</table>";
 ?>
 </table>
-<button type="button" name="update_state" onClick="location.href='Mypage_status_update.php'">업데이트</button>
+<button type="button" name="update_state" onClick="location.href='Mypage_hospital_update.php'">업데이트</button>
 
 
 <h2> 나의 치료정보</h2>

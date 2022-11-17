@@ -80,7 +80,7 @@ if (isset($_POST['submitted'])){
                     <option value="Yes" <?php if($org_array['chemotherapy'] == "Yes") echo "SELECTED";?>> Yes
                 </select></td>
                 <td> 
-                <input type="text" name="c_therapy_date" size="10" value= "<?php echo $org_c_array['date'];?>">
+                <input type="date" name="c_therapy_date" size="10" value= "<?php echo $org_c_array['date'];?>">
                 </td>
             </tr>
             <tr>
@@ -90,7 +90,7 @@ if (isset($_POST['submitted'])){
                     <option value="Yes" <?php if($org_array['hormone_therapy'] == "Yes") echo "SELECTED";?>> Yes
                 </select></td>
                 <td> 
-                <input type="text" name="h_therapy_date" size="10" value= "<?php echo $org_h_array['date'];?>">
+                <input type="date" name="h_therapy_date" size="10" value= "<?php echo $org_h_array['date'];?>">
                 </td>
             </tr>
             <tr>
@@ -100,7 +100,7 @@ if (isset($_POST['submitted'])){
                     <option value="Yes" <?php if($org_array['radio_therapy'] == "Yes") echo "SELECTED";?>> Yes
                 </select></td>
                 <td> 
-                <input type="text" name="r_therapy_date" size="10" value= "<?php echo $org_r_array['date'];?>">
+                <input type="date" name="r_therapy_date" size="10" value= "<?php echo $org_r_array['date'];?>">
                 </td>
             </tr>
     </table><br>
