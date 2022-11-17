@@ -21,10 +21,21 @@ if (isset($_POST['submitted_add_m'])){
             
             $info_sql = "INSERT INTO bio_info (`patient_id`) VALUES ('{$_REQUEST['user_id']}')";
             $cancer_sql = "INSERT INTO cancer_info (patient_id) VALUES('{$_REQUEST['user_id']}')";
+            $hospital_sql = "INSERT INTO hospital_info (patient_id) VALUES('{$_REQUEST['user_id']}')";
             $surgery_sql = "INSERT INTO surgery_info (patient_id) VALUES('{$_REQUEST['user_id']}')";
+            $treat_sql = "INSERT INTO treatment_info (patient_id) VALUES('{$_REQUEST['user_id']}')";
+            $treat_c_sql = "INSERT INTO chemotherapy (patient_id) VALUES('{$_REQUEST['user_id']}')";
+            $treat_h_sql = "INSERT INTO hormone_therapy (patient_id) VALUES('{$_REQUEST['user_id']}')";
+            $treat_r_sql = "INSERT INTO radio_therapy (patient_id) VALUES('{$_REQUEST['user_id']}')";
             $r2 = mysqli_query($conn, $info_sql);
             $r2 = mysqli_query($conn, $cancer_sql);
+            $r2 = mysqli_query($conn, $hospital_sql);
             $r2 = mysqli_query($conn, $surgery_sql);
+            $r2 = mysqli_query($conn, $treat_sql);
+            $r2 = mysqli_query($conn, $treat_c_sql);
+            $r2 = mysqli_query($conn, $treat_r_sql);
+            $r2 = mysqli_query($conn, $treat_h_sql);
+
             echo"<script>alert('회원가입이 완료되었습니다.'); document.location.href='Login.php';</script>";
             mysqli_close($conn);
         }

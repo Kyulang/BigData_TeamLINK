@@ -11,8 +11,8 @@ include "./inc/dbcon.php";
     <table border="3">
         <th>병원명</th>
         <th>환자수</th>
-<?php
-    $sql = "SELECT a.hospital, count(*)AS mycount FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='I' AND b.vital_status='Living' GROUP BY a.hospital ORDER by count(*) desc";
+        <?php
+    $sql = "SELECT a.hospital, count(*)AS mycount, rank() OVER(order by mycount desc) AS H_RANK FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='I' AND b.vital_status='Living' GROUP BY a.hospital";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         if($row['hospital']!="")
@@ -25,8 +25,8 @@ include "./inc/dbcon.php";
     <table border="3">
         <th>병원명</th>
         <th>환자수</th>
-<?php
-    $sql = "SELECT a.hospital, count(*)AS mycount FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='II' AND b.vital_status='Living' GROUP BY a.hospital ORDER by count(*) desc";
+        <?php
+    $sql = "SELECT a.hospital, count(*)AS mycount, rank() OVER(order by mycount desc) AS H_RANK FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='II' AND b.vital_status='Living' GROUP BY a.hospital";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         if($row['hospital']!="")
@@ -42,7 +42,7 @@ include "./inc/dbcon.php";
         <th>병원명</th>
         <th>환자수</th>
 <?php
-    $sql = "SELECT a.hospital, count(*)AS mycount FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='III' AND b.vital_status='Living' GROUP BY a.hospital ORDER by count(*) desc";
+    $sql = "SELECT a.hospital, count(*)AS mycount, rank() OVER(order by mycount desc) AS H_RANK FROM hospital_info AS a INNER JOIN cancer_info AS b ON a.patient_id = b.patient_id WHERE b.tumor_stage='III' AND b.vital_status='Living' GROUP BY a.hospital";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
         if($row['hospital']!="")
